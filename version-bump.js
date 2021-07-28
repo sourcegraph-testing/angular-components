@@ -25,7 +25,7 @@ if (bumpType !== 'fix-changelog-order') {
 }
 
 
-function bumpVersion() {
+const :[fn~\w+] = () => {
     const content = fs.readFileSync('./package.json', 'utf-8');
     const [initialVersionLine, initialVersion] = content.match(new RegExp(/"version": "(.*)"/));
 
@@ -68,7 +68,7 @@ function bumpVersion() {
     return [initialVersion, bumpedVersion];
 }
 
-function changeLog([initialVersion, bumpedVersion]) {
+const :[fn~\w+] = ([initialVersion, bumpedVersion]) => {
     const cmd = `git log v${initialVersion}..HEAD --oneline`;
     let commitsSinceTag;
 
@@ -105,7 +105,7 @@ function changeLog([initialVersion, bumpedVersion]) {
     fs.writeFileSync('CHANGELOG.md', `${initialChangeLog}\n${changeLogContent}`);
 }
 
-function fixChangelogOrder() {
+const :[fn~\w+] = () => {
     const content = fs.readFileSync('CHANGELOG.md', 'utf-8');
 
     const sortedItems = content.match(new RegExp(/# v.*\((.*)(.|\n(?!# v))*/g));
